@@ -22,14 +22,15 @@ class user
 	void listen();
 	//~user();
 
-	private: 
 	//functions for coordinate alteration
 	void up(void);
 	void down(void);
 	void left(void);
 	void right(void);
-	static functype fdt[]= {&user::up, &user::down, &user::left, &user::right};
+	//functype fdt[4]= {up,down,left,right};
+	functype fdt[4];
 
+	private: 
 	//user status/info
 	char * id;
 	int x;
