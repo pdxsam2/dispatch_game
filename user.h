@@ -10,6 +10,9 @@ using namespace std;
 //constants
 const char SIZE= 21;
 
+//forward declaration of list to create an object of it in user
+class list;
+
 //this object contains a user's name and coordinates	//ADJUST THIS
 class user
 {
@@ -20,7 +23,7 @@ class user
 	//~user();
 
 	//functions for coordinate alteration
-	typedef (user::*functype)(void);
+	typedef void (user::*functype)(void);
 	void up();
 	void down();
 	void left();
@@ -29,7 +32,7 @@ class user
 
 	private: 
 	//user status/info
-	class list moves;
+	//list moves;
 	char * id;
 	int x;
 	int y;
@@ -40,6 +43,15 @@ class user
 class list
 {
 	public:
-	private:
+	list();
+	//~list();
+	void insert(user::functype * );
+	void display();
 
+	private:
+	struct node
+	{
+		user::functype * data;
+		node * next;
+	} *head, *tail;
 };
