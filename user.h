@@ -10,10 +10,7 @@ using namespace std;
 //constants
 const char SIZE= 21;
 
-//this is a new type for the definition of the fdt in the user class
-typedef void (*functype)(void);
-
-//this object contains a user's name and coordinates
+//this object contains a user's name and coordinates	//ADJUST THIS
 class user
 {
 	public: 
@@ -23,17 +20,26 @@ class user
 	//~user();
 
 	//functions for coordinate alteration
-	void up(void);
-	void down(void);
-	void left(void);
-	void right(void);
-	//functype fdt[4]= {up,down,left,right};
-	functype fdt[4];
+	typedef (user::*functype)(void);
+	void up();
+	void down();
+	void left();
+	void right();
+	functype fdt[4]= {&user::up,&user::down,&user::left,&user::right};
 
 	private: 
 	//user status/info
+	class list moves;
 	char * id;
 	int x;
 	int y;
 	
+};
+
+//this is a list used to store previous movements performed by a user
+class list
+{
+	public:
+	private:
+
 };

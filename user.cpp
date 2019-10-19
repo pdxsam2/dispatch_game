@@ -5,7 +5,6 @@ user::user()
 	id= NULL;
 	x= 0;
 	y= 0;
-	fdt[0]= &user::up;
 }
 user::user(char * name)
 {
@@ -13,12 +12,9 @@ user::user(char * name)
 	strcpy(name,id);
 	x= 0;
 	y= 0;
-	//fdt[]= {up,down,left,right};
 }
-void up(user & player)
-{
-}
-void down(user & player) {}
-void left(user & player) {}
-void right(user & player) {}
+void user::up() {}
+void user::down() {}
+void user::left() {}
+void user::right() {}
 

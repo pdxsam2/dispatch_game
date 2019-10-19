@@ -13,7 +13,7 @@ class table
 	//~table();
 
 	private:
-	void insert(functype *);
+	//void insert(functype *);
 	void display();
 	
 
