@@ -9,6 +9,8 @@ using namespace std;
 
 //constants
 const char SIZE= 21;
+const char MAX= 100;
+const char newl= '\n';
 
 //this object contains a user's name and coordinates	//ADJUST THIS
 class user
@@ -16,8 +18,8 @@ class user
 	public: 
 	user();
 	user(char *);
-	void listen();
 	void print();
+	int new_move(char);
 	//~user();
 
 	//functions for coordinate alteration
@@ -27,10 +29,12 @@ class user
 	void left();
 	void right();
 	functype fdt[4]= {&user::up,&user::down,&user::left,&user::right};
+	
+	//static functype fdt[4];	//this line was me messing with different ways to create the array, see lines in constructors as well for statements related
 
 	private: 
 	//user status/info
-	class list moves;
+	class list * moves;
 	char * id;
 	int x;
 	int y;
@@ -52,5 +56,10 @@ class list
 		user::functype * data;
 		node * next;
 	} *head, *tail;
+
 	void display(node *, user *);
 };
+
+
+///GLOBAL PROTOTYPES
+void move_sel(char);

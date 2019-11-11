@@ -3,6 +3,7 @@
 user::user()
 {
 	id= NULL;
+	//fdt[4]= {&user::up,&user::down,&user::left,&user::right};
 	x= 0;
 	y= 0;
 }
@@ -12,19 +13,46 @@ user::user(char * name)
 {
 	id= new char[strlen(name)+1];
 	strcpy(name,id);
+	//fdt[4]= {&user::up,&user::down,&user::left,&user::right};
 	x= 0;
 	y= 0;
-}
-
-//listen function that will call the functions from the function dispatch table 
-void user::listen()
-{
 }
 
 //prints the coordinates of the user
 void user::print()
 {
 	cout<< "(x,y)= \t" << "(" << x << "," << y << ")\n";
+}
+
+//changes a character into an index and then sends the address of the function into list
+int user::new_move(char move)
+{
+	if(move == 'w') 
+	{
+		moves->insert(&fdt[0]);
+		this->fdt[0];
+		return 1;
+	}
+	if(move == 's')
+	{
+		moves->insert(&fdt[1]);
+		this->fdt[1];
+		return 1;
+	}
+	if(move == 'a')
+	{
+		moves->insert(&fdt[2]);
+		this->fdt[2];
+		return 1;
+	}
+	if(move == 'd')
+	{
+		moves->insert(&fdt[3]);
+		this->fdt[3];
+		return 1;
+	}
+
+	else return 0;
 }
 
 //moves to change the coordinates of the user
@@ -89,7 +117,6 @@ void list::display()
 
 void list::display(list::node * current, user * ct_dummy)
 {
-	if(!current) return;	//this line doesn't work yet because you're not passsing the node by reference anymore
 
 	//this section checks which function is inside the node and then calls it on the dummy
 	user::functype * func= current->data;
@@ -102,12 +129,11 @@ void list::display(list::node * current, user * ct_dummy)
 			index= i;
 		}
 	}
-	
+
+	//calls the necessary function, prints the new coordinates
 	ct_dummy->fdt[index];
 	ct_dummy->print();
+
+	if(!current->next) return;	
+	display(current->next, ct_dummy);
 }
-
-
-
-
-
