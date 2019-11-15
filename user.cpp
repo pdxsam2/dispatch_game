@@ -6,6 +6,7 @@ user::user()
 	//fdt[4]= {&user::up,&user::down,&user::left,&user::right};
 	x= 0;
 	y= 0;
+	moves= new list;
 }
 
 //constructor
@@ -16,6 +17,7 @@ user::user(char * name)
 	//fdt[4]= {&user::up,&user::down,&user::left,&user::right};
 	x= 0;
 	y= 0;
+	moves= new list;
 }
 
 //prints the coordinates of the user
@@ -53,6 +55,12 @@ int user::new_move(char move)
 	}
 
 	else return 0;
+}
+//displays the recent moves, really just a level of abstraction between the user and the list
+void user::display()
+{
+	cout<<"User " << this->id << "'s recent moves\n";
+	moves->display();
 }
 
 //moves to change the coordinates of the user

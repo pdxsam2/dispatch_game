@@ -20,6 +20,7 @@ class user
 	user(char *);
 	void print();
 	int new_move(char);
+	void display();
 	//~user();
 
 	//functions for coordinate alteration
@@ -62,4 +63,4 @@ class list
 
 
 ///GLOBAL PROTOTYPES
-void move_sel(char);
+void move_sel(char&);
