@@ -29,7 +29,6 @@ class user
 	void down();
 	void left();
 	void right();
-	functype fdt[4]= {&user::up,&user::down,&user::left,&user::right};
 	
 	//static functype fdt[4];	//this line was me messing with different ways to create the array, see lines in constructors as well for statements related
 
@@ -39,6 +38,7 @@ class user
 	char * id;
 	int x;
 	int y;
+	functype fdt[]= {up,down,left,right};
 	
 };
 

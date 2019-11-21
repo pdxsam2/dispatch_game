@@ -20,8 +20,6 @@ int main()
 	}
 
 	test.display();
-	
-
 
 	return 0;
 }

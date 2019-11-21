@@ -13,7 +13,7 @@ user::user()
 user::user(char * name)
 {
 	id= new char[strlen(name)+1];
-	strcpy(name,id);
+	strcpy(id,name);
 	//fdt[4]= {&user::up,&user::down,&user::left,&user::right};
 	x= 0;
 	y= 0;
@@ -32,25 +32,25 @@ int user::new_move(char move)
 	if(move == 'w') 
 	{
 		moves->insert(&fdt[0]);
-		this->fdt[0];
+		this->*fdt[0]();
 		return 1;
 	}
 	if(move == 's')
 	{
 		moves->insert(&fdt[1]);
-		this->fdt[1];
+		(fdt[1])();
 		return 1;
 	}
 	if(move == 'a')
 	{
 		moves->insert(&fdt[2]);
-		this->fdt[2];
+		(fdt[2])();
 		return 1;
 	}
 	if(move == 'd')
 	{
 		moves->insert(&fdt[3]);
-		this->fdt[3];
+		(fdt[3])();
 		return 1;
 	}
 
