@@ -32,25 +32,25 @@ int user::new_move(char move)
 	if(move == 'w') 
 	{
 		moves->insert(&fdt[0]);
-		this->*fdt[0]();
+		(this->*fdt[0])();
 		return 1;
 	}
 	if(move == 's')
 	{
 		moves->insert(&fdt[1]);
-		(fdt[1])();
+		(this->*fdt[1])();
 		return 1;
 	}
 	if(move == 'a')
 	{
 		moves->insert(&fdt[2]);
-		(fdt[2])();
+		(this->*fdt[2])();
 		return 1;
 	}
 	if(move == 'd')
 	{
 		moves->insert(&fdt[3]);
-		(fdt[3])();
+		(this->*fdt[3])();
 		return 1;
 	}
 
@@ -139,7 +139,7 @@ void list::display(list::node * current, user * ct_dummy)
 	}
 
 	//calls the necessary function, prints the new coordinates
-	ct_dummy->fdt[index];
+	(ct_dummy->*fdt[index])();
 	ct_dummy->print();
 
 	if(!current->next) return;	
