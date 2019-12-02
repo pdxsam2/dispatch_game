@@ -56,6 +56,29 @@ int user::new_move(char move)
 
 	else return 0;
 }
+//calls a move function on "this"
+int user::new_move(int move)
+{
+	if(move > -1 || move < 4)
+	{
+		(this->*fdt[move])();
+		return 1;
+	}
+	return 0;
+}
+//checks which function has been called (used to call a function pointer in a node)
+int user::func_check(user::functype * to_check)
+{
+	if(*to_check == fdt[0])
+		return 0;
+	if(*to_check == fdt[1])
+		return 1;
+	if(*to_check == fdt[2])
+		return 2;
+	if(*to_check == fdt[3])
+		return 3;
+	else return -1;
+}
 //displays the recent moves, really just a level of abstraction between the user and the list
 void user::display()
 {
@@ -99,18 +122,20 @@ void list::insert(user::functype * new_move)
 		head->data= new_move;
 		tail= head;
 	}
-	else if(!head->next)
-	{
-		head->next= new node;
-		tail->data= new_move;
-		tail= head->next;
-	}
 	else
 	{
 		tail->next= new node;
 		tail= tail->next;
 		tail->data= new_move;
 	}
+	/*
+	else if(!head->next)
+	{
+		head->next= new node;
+		tail= head->next;
+		tail->data= new_move;
+	}
+	*/
 }
 
 //displays the moves that have been made
@@ -127,19 +152,30 @@ void list::display(list::node * current, user * ct_dummy)
 {
 
 	//this section checks which function is inside the node and then calls it on the dummy
+	if(!current) return;
 	user::functype * func= current->data;
-	int index = 0;
+	int index = ct_dummy->func_check(func);
+	if(index < 0) return;
 
+
+	//this could keep going after it finds a match?
+	/*
 	for(int i= 0; i < 4; ++i)
 	{
+		if(ct_dummy->func_check(i))
+		{
+			index = i;
+		}
+
 		if(&*func == &ct_dummy->fdt[i])
 		{
 			index= i;
 		}
 	}
+	*/
 
 	//calls the necessary function, prints the new coordinates
-	(ct_dummy->*fdt[index])();
+	ct_dummy->new_move(index);
 	ct_dummy->print();
 
 	if(!current->next) return;	

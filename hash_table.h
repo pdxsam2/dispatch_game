@@ -3,18 +3,23 @@
 //Samuel Parker, 10/2019
 
 //this is the hash table data structure used for the following: 	
-	//stores all of the user's movements in a list from each index of an array of lists 
+	//stores users based on an ID that is set by the user
 
 class table
 {
 	public: 
 	table();
-	//hash(char *, functype*);	//function dispatch table has yet to be implemented 
+	table(int);
 	//~table();
+	void insert(char *);
+	void display();
+
 
 	private:
-	//void insert(functype *);
-	void display();
+	void hash(char *);	
+
+	int size;
+	user ** d_base;
 	
 
 };

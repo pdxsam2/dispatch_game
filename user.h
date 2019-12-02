@@ -6,13 +6,16 @@ using namespace std;
 
 //Samuel Parker, 10/2019
 //Personal Project
+//To - do
+	//try - catch for exception handling in display function?
+	//change insertion algorithm to add at the end !
 
 //constants
 const char SIZE= 21;
 const char MAX= 100;
 const char newl= '\n';
 
-//this object contains a user's name and coordinates	//ADJUST THIS
+//this object contains a user's name, coordinates, and recent moves 
 class user
 {
 	public: 
@@ -20,12 +23,15 @@ class user
 	user(char *);
 	void print();
 	int new_move(char);
+	int new_move(int);
 	void display();
 	//~user();
 
 	//functions for coordinate alteration
 	typedef void (user::*functype)(void);
 	functype fdt[4]= {&user::up,&user::down,&user::left,&user::right};
+	int func_check(user::functype*);
+
 	//static functype fdt[4];	//this line was me messing with different ways to create the array, see lines in constructors as well for statements related
 	void up();
 	void down();
