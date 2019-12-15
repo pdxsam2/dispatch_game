@@ -66,6 +66,13 @@ int user::new_move(int move)
 	}
 	return 0;
 }
+//stores the id of the current user into a string (expected to be used by the hash table)
+void user::get_id(char * & store)
+{
+	delete [] store;
+	store= new char[strlen(id)+1];
+	strcpy(store, id);
+}
 //checks which function has been called (used to call a function pointer in a node)
 int user::func_check(user::functype * to_check)
 {

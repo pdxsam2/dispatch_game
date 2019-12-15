@@ -2,24 +2,37 @@
 
 int main()
 {
+	table data_base(7);
 	char id[SIZE];
 	char func_index= '0';
-	cout<<"Enter an ID for your user: \n";
-	cin>> id;
-	cin.ignore(100, newl);
-	
-	user test(id);
-	test.print();
-	move_sel(func_index);
-	
-	while(func_index != '0')
+	char check= 'y';
+	user * test;
+
+	while(check == 'y')
 	{
-		if(!test.new_move(func_index)) cout<<"Error: you did not enter a valid input\n";
-		test.print();
+		cout<<"Enter an ID for your user: \n";
+		cin>> id;
+		cin.ignore(100, newl);
+		
+		test= new user(id);
+		data_base.insert(*test);
+		test->print();
 		move_sel(func_index);
+		
+		while(func_index != '0')
+		{
+			if(!test->new_move(func_index)) cout<<"Error: you did not enter a valid input\n";
+			test->print();
+			move_sel(func_index);
+		}
+		test->display();
+		cout<<"\nWould you like to add another user?(y/n)\n";
+		cin>> check;
+		cin.ignore();
+		test= NULL;
 	}
 
-	test.display();
+	data_base.display();
 
 	return 0;
 }

@@ -25,6 +25,7 @@ class user
 	int new_move(char);
 	int new_move(int);
 	void display();
+	void get_id(char * &);
 	//~user();
 
 	//functions for coordinate alteration

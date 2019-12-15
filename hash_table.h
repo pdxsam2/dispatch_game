@@ -11,15 +11,20 @@ class table
 	table();
 	table(int);
 	//~table();
-	void insert(char *);
+	void insert(user &);
 	void display();
 
 
 	private:
-	void hash(char *);	
+	int hash(char *);	
 
 	int size;
-	user ** d_base;
+	struct node
+	{
+		user * data;
+		node * next;
+	};
+	node ** d_base;
 	
 
 };
