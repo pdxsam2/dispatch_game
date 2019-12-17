@@ -1,2 +1,2 @@
 # dispatch_game
-This is a personal project intended to create a function dispatch table of "game" functions (e.g. shoot(), move(), jump()) which are then stored in a user ID dependent hash table (so the user can review their history).  
+This is a personal project intended to create a function dispatch table of "game" functions (in this case manipulate x and y coordinates) which are then stored in a list for each user. Each user is stored in an ID dependent hash table. The overall intention is to be able to allow a user to review their previous moves by storing the previous functions in the order they were called. 
