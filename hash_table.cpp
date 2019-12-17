@@ -25,6 +25,17 @@ table::table(int new_size)
 		d_base[i]= NULL;
 	}
 }
+
+//destructor 
+table::~table()
+{
+	for(int i= 0; i < size; ++i)
+	{
+		remove_list(d_base[i]);
+	}
+	delete[] d_base;
+}
+
 //hash function that uses the average ascii value of the user's ID to create an integer
 int table::hash(char * ID)
 {
@@ -65,6 +76,7 @@ void table::insert(user & new_user)
 		}
 		current->next= temp;
 	}
+	delete[] ID;
 }
 //displays all of the table
 void table::display()
@@ -85,4 +97,11 @@ void table::display()
 	}
 }
 
-
+//removes a list of the nodes containing users
+void table::remove_list(node * current)
+{
+	if(!current) return;
+	remove_list(current->next);
+	delete current->data;
+	delete current;
+}

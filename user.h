@@ -8,7 +8,7 @@ using namespace std;
 //Personal Project
 //To - do
 	//try - catch for exception handling in display function?
-	//change insertion algorithm to add at the end !
+	//write destructors
 
 //constants
 const char SIZE= 21;
@@ -21,12 +21,12 @@ class user
 	public: 
 	user();
 	user(char *);
+	~user();
 	void print();
 	int new_move(char);
 	int new_move(int);
 	void display();
 	void get_id(char * &);
-	//~user();
 
 	//functions for coordinate alteration
 	typedef void (user::*functype)(void);
@@ -54,7 +54,7 @@ class list
 {
 	public:
 	list();
-	//~list();
+	~list();
 	void insert(user::functype * );
 	void display();
 
@@ -66,6 +66,7 @@ class list
 	} *head, *tail;
 
 	void display(node *, user *);
+	void remove_all(node *);
 };
 
 

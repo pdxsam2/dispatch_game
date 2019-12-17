@@ -10,7 +10,7 @@ class table
 	public: 
 	table();
 	table(int);
-	//~table();
+	~table();
 	void insert(user &);
 	void display();
 
@@ -25,6 +25,8 @@ class table
 		node * next;
 	};
 	node ** d_base;
+
+	void remove_list(node *);
 	
 
 };

@@ -16,7 +16,6 @@ int main()
 		
 		test= new user(id);
 		data_base.insert(*test);
-		test->print();
 		move_sel(func_index);
 		
 		while(func_index != '0')
@@ -25,7 +24,6 @@ int main()
 			test->print();
 			move_sel(func_index);
 		}
-		test->display();
 		cout<<"\nWould you like to add another user?(y/n)\n";
 		cin>> check;
 		cin.ignore();
@@ -48,4 +46,6 @@ void move_sel(char & index)
 	cin>> index;
 	cin.ignore(MAX, newl);
 }
+
+
 

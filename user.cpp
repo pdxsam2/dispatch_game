@@ -6,7 +6,7 @@ user::user()
 	//fdt[4]= {&user::up,&user::down,&user::left,&user::right};
 	x= 0;
 	y= 0;
-	moves= new list;
+	moves= NULL;
 }
 
 //constructor
@@ -17,9 +17,14 @@ user::user(char * name)
 	//fdt[4]= {&user::up,&user::down,&user::left,&user::right};
 	x= 0;
 	y= 0;
-	moves= new list;
+	moves= NULL;
 }
-
+//destructor 
+user::~user()
+{
+	delete[] id;
+	delete moves;
+}
 //prints the coordinates of the user
 void user::print()
 {
@@ -31,24 +36,28 @@ int user::new_move(char move)
 {
 	if(move == 'w') 
 	{
+		if(!moves) moves= new list;
 		moves->insert(&fdt[0]);
 		(this->*fdt[0])();
 		return 1;
 	}
 	if(move == 's')
 	{
+		if(!moves) moves= new list;
 		moves->insert(&fdt[1]);
 		(this->*fdt[1])();
 		return 1;
 	}
 	if(move == 'a')
 	{
+		if(!moves) moves= new list;
 		moves->insert(&fdt[2]);
 		(this->*fdt[2])();
 		return 1;
 	}
 	if(move == 'd')
 	{
+		if(!moves) moves= new list;
 		moves->insert(&fdt[3]);
 		(this->*fdt[3])();
 		return 1;
@@ -120,6 +129,14 @@ list::list()
 	tail= NULL;
 }
 
+//destructor
+list::~list()
+{
+	remove_all(head);
+	head= NULL;
+	tail= NULL;
+}
+
 //inserts a new move into the list
 void list::insert(user::functype * new_move)
 {
@@ -127,6 +144,7 @@ void list::insert(user::functype * new_move)
 	{
 		head= new node;
 		head->data= new_move;
+		head->next= NULL;
 		tail= head;
 	}
 	else
@@ -134,6 +152,7 @@ void list::insert(user::functype * new_move)
 		tail->next= new node;
 		tail= tail->next;
 		tail->data= new_move;
+		tail->next= NULL;
 	}
 	/*
 	else if(!head->next)
@@ -154,7 +173,6 @@ void list::display()
 	display(head, ct_dummy);
 	delete ct_dummy;
 }
-
 void list::display(list::node * current, user * ct_dummy)
 {
 
@@ -187,4 +205,12 @@ void list::display(list::node * current, user * ct_dummy)
 
 	if(!current->next) return;	
 	display(current->next, ct_dummy);
+}
+
+//removes all the nodes, used by the destructor
+void list::remove_all(node * current)
+{
+	if(!current) return;
+	remove_all(current->next);
+	delete current;
 }
