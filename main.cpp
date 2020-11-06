@@ -6,28 +6,53 @@ int main()
 	char id[SIZE];
 	char func_index= '0';
 	char check= 'y';
+	char selection= '1';
 	user * test;
 
-	while(check == 'y')
+	while(selection != '0')
 	{
-		cout<<"Enter an ID for your user: \n";
-		cin>> id;
+		cout<< "Select an option from below..." << endl;
+		cout<< "Add a new user - 1" << endl;
+		cout<< "Search for a user - 2" << endl;
+		cout<< "Remove a user - 3" << endl;
+		cout<< "Quit - 0" << endl;
+
+		cin >> selection;
 		cin.ignore(100, newl);
-		
-		test= new user(id);
-		data_base.insert(*test);
-		move_sel(func_index);
-		
-		while(func_index != '0')
+
+		if(selection == 1)
 		{
-			if(!test->new_move(func_index)) cout<<"Error: you did not enter a valid input\n";
-			test->print();
+			// while(check == 'y')
+			// {
+			cout<<"Enter an ID for your user: \n";
+			cin>> id;
+			cin.ignore(100, newl);
+			
+			test= new user(id);
+			data_base.insert(*test);
 			move_sel(func_index);
+			
+			while(func_index != '0')
+			{
+				if(!test->new_move(func_index)) cout<<"Error: you did not enter a valid input\n";
+				test->print();
+				move_sel(func_index);
+			}
+			// cout<<"\nWould you like to add another user?(y/n)\n";
+			// cin>> check;
+			// cin.ignore();
+			// test= NULL;
+			// }
+
 		}
-		cout<<"\nWould you like to add another user?(y/n)\n";
-		cin>> check;
-		cin.ignore();
-		test= NULL;
+		else if(selection == 2)
+		{
+
+		}
+		else if(selection == 3)
+		{
+
+		}
 	}
 
 	data_base.display();

@@ -3,7 +3,6 @@
 user::user()
 {
 	id= NULL;
-	//fdt[4]= {&user::up,&user::down,&user::left,&user::right};
 	x= 0;
 	y= 0;
 	moves= NULL;
@@ -14,7 +13,6 @@ user::user(char * name)
 {
 	id= new char[strlen(name)+1];
 	strcpy(id,name);
-	//fdt[4]= {&user::up,&user::down,&user::left,&user::right};
 	x= 0;
 	y= 0;
 	moves= NULL;
@@ -154,14 +152,6 @@ void list::insert(user::functype * new_move)
 		tail->data= new_move;
 		tail->next= NULL;
 	}
-	/*
-	else if(!head->next)
-	{
-		head->next= new node;
-		tail= head->next;
-		tail->data= new_move;
-	}
-	*/
 }
 
 //displays the moves that have been made
@@ -183,21 +173,7 @@ void list::display(list::node * current, user * ct_dummy)
 	if(index < 0) return;
 
 
-	//this could keep going after it finds a match?
-	/*
-	for(int i= 0; i < 4; ++i)
-	{
-		if(ct_dummy->func_check(i))
-		{
-			index = i;
-		}
-
-		if(&*func == &ct_dummy->fdt[i])
-		{
-			index= i;
-		}
-	}
-	*/
+	
 
 	//calls the necessary function, prints the new coordinates
 	ct_dummy->new_move(index);

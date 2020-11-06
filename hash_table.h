@@ -2,8 +2,8 @@
 
 //Samuel Parker, 10/2019
 
-//this is the hash table data structure used for the following: 	
-	//stores users based on an ID that is set by the user
+//Hash-table
+	// stores users via an ID
 
 class table
 {
