@@ -6,9 +6,6 @@ using namespace std;
 
 //Samuel Parker, 10/2019
 //Personal Project
-//To - do
-	//try - catch for exception handling in display function?
-	//write destructors
 
 //constants
 const char SIZE= 21;
