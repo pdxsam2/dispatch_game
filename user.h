@@ -4,8 +4,10 @@
 
 using namespace std;
 
-//Samuel Parker, 10/2019
-//Personal Project
+/*
+Samuel Parker, 10/2019
+Personal Project
+*/
 
 //constants
 const char SIZE= 21;
