@@ -52,7 +52,7 @@ int table::hash(char * ID)
 	
 }
 
-//insets a user into the 
+//insets a user into the table
 void table::insert(user & new_user)
 {
 	char * ID= NULL;
