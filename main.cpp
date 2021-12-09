@@ -22,8 +22,6 @@ int main()
 
 		if(selection == 1)
 		{
-			// while(check == 'y')
-			// {
 			cout<<"Enter an ID for your user: \n";
 			cin>> id;
 			cin.ignore(100, newl);
@@ -38,11 +36,6 @@ int main()
 				test->print();
 				move_sel(func_index);
 			}
-			// cout<<"\nWould you like to add another user?(y/n)\n";
-			// cin>> check;
-			// cin.ignore();
-			// test= NULL;
-			// }
 
 		}
 		else if(selection == 2)
