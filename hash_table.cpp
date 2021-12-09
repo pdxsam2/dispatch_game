@@ -1,9 +1,9 @@
 #include"hash_table.h"
 
-//
-//
-//This file is the implementation for the hash table that stores users
-//constructors
+/*
+This file is the implementation for the hash table that stores users
+constructors
+*/
 table::table()
 {
 	this->size= 100;

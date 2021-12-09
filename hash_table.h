@@ -2,8 +2,10 @@
 
 //Samuel Parker, 10/2019
 
-//Hash-table
-	// stores users via an ID
+/*
+Hash-table
+	- stores users via an ID
+*/
 
 class table
 {
