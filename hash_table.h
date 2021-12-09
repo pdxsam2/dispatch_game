@@ -7,6 +7,7 @@ this is the hash table data structure used for the following:
 	- stores users based on an ID that is set by the user
 */
 
+//object that acts as the table the user navigates
 class table
 {
 	public: 

@@ -35,6 +35,7 @@ int main()
 	return 0;
 }
 
+//prompts the user and takes their input to move them
 void move_sel(char & index)
 {
 	cout<<"Which direction would you like your user to move?\n";
