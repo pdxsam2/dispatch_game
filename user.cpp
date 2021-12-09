@@ -118,8 +118,6 @@ void user::right()
 	++x;
 }
 
-//
-//
 //list of previous moves made by this user
 list::list()
 {
