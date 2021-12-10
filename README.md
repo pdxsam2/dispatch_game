@@ -3,8 +3,12 @@ A simple application to traverse a user through a theoretical 2D plane with (x, 
 
 # Authors/Contributors
 Chris Anderson (ChrisShocker)
+
 Micah Blasko (micahblasko) 
+
 Samuel Parker (pdxsam2)
+
+## This project falls under the [MIT License](./LICENSE.txt)
 
 # Technical Description
 Users are stored in a hash-table consisting of an array of dynamically allocated linked lists, the hashing function relies on the user's ID. 
