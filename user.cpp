@@ -26,7 +26,7 @@ user::~user()
 }
 
 //prints the coordinates of the user
-void user::print()
+void user::print_coordinate()
 {
 	cout<< "(x,y)= \t" << "(" << x << "," << y << ")\n";
 }
@@ -86,7 +86,7 @@ void user::get_id(char * & store)
 }
 
 //checks which function has been called (used to call a function pointer in a node)
-int user::func_check(user::functype * to_check)
+int user::function_check(user::function_type * to_check)
 {
 	if(*to_check == this -> fdt[0])
 		return 0;
@@ -100,7 +100,7 @@ int user::func_check(user::functype * to_check)
 }
 
 //displays the recent moves, really just a level of abstraction between the user and the list
-void user::display()
+void user::display_moves()
 {
 	cout<<"User " << this->id << "'s recent moves\n";
 	this -> moves -> display();

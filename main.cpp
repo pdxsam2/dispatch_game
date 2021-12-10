@@ -4,7 +4,7 @@ int main()
 {
 	table data_base(7);
 	char id[SIZE];
-	char func_index = '0';
+	char function_index = '0';
 	char check = 'y';
 	user * test;
 
@@ -16,13 +16,13 @@ int main()
 		
 		test= new user(id);
 		data_base.insert(* test);
-		MOVE_SEL(func_index);
+		MOVE_SELECTION(function_index);
 		
-		while(func_index != '0')
+		while(function_index != '0')
 		{
-			if(!test -> new_move(func_index)) cout<<"Error: you did not enter a valid input\n";
-			test -> print();
-			MOVE_SEL(func_index);
+			if(!test -> new_move(function_index)) cout<<"Error: you did not enter a valid input\n";
+			test -> print_coordinate();
+			MOVE_SELECTION(function_index);
 		}
 		cout<<"\nWould you like to add another user?(y/n)\n";
 		cin>> check;
@@ -36,7 +36,7 @@ int main()
 }
 
 //prompts the user and takes their input to move them
-void MOVE_SEL(char & index)
+void MOVE_SELECTION(char & index)
 {
 	cout<<"Which direction would you like your user to move?\n";
 	cout<<"Up - w\n";
