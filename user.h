@@ -10,9 +10,9 @@ Personal Project
 */
 
 //constants
-const char SIZE= 21;
-const char MAX= 100;
-const char NEWL= '\n';
+const char SIZE = 21;
+const char MAX = 100;
+const char NEWL = '\n';
 
 //this object contains a user's name, coordinates, and recent moves 
 class user
@@ -61,7 +61,7 @@ class list
 	{
 		user::functype * data;
 		node * next;
-	} *head, *tail;
+	} * head, * tail;
 
 	void display(node *, user *);
 	void remove_all(node *);
@@ -69,4 +69,4 @@ class list
 
 
 ///GLOBAL PROTOTYPES
-void MOVE_SEL(char&);
+void MOVE_SEL(char &);
