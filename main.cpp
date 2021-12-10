@@ -4,8 +4,8 @@ int main()
 {
 	table data_base(7);
 	char id[SIZE];
-	char func_index= '0';
-	char check= 'y';
+	char func_index = '0';
+	char check = 'y';
 	user * test;
 
 	while(check == 'y')
@@ -15,19 +15,19 @@ int main()
 		cin.ignore(100, NEWL);
 		
 		test= new user(id);
-		data_base.insert(*test);
+		data_base.insert(* test);
 		MOVE_SEL(func_index);
 		
 		while(func_index != '0')
 		{
-			if(!test->new_move(func_index)) cout<<"Error: you did not enter a valid input\n";
-			test->print();
+			if(!test -> new_move(func_index)) cout<<"Error: you did not enter a valid input\n";
+			test -> print();
 			MOVE_SEL(func_index);
 		}
 		cout<<"\nWould you like to add another user?(y/n)\n";
 		cin>> check;
 		cin.ignore();
-		test= NULL;
+		test = NULL;
 	}
 
 	data_base.display();
