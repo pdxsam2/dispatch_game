@@ -23,6 +23,8 @@ class user
 	~user();
 	void print_coordinate();
 	int new_move(char);
+	int get_move_index(char);
+	void apply_move(int);
 	int new_move(int);
 	void display_moves();
 	void get_id(char * &);
