@@ -31,39 +31,43 @@ void user::print_coordinate()
 	cout<< "(x,y)= \t" << "(" << x << "," << y << ")\n";
 }
 
-//changes a character into an index and then sends the address of the function into list
+//gets and applys the new move
 int user::new_move(char move)
 {
-	if(move == 'w') 
-	{
-		if(!this -> moves) this -> moves = new list;
-		this -> moves -> insert(&fdt[0]);
-		(this ->*fdt[0])();
-		return 1;
-	}
-	if(move == 's')
-	{
-		if(!this -> moves) this -> moves = new list;
-		this -> moves -> insert(&fdt[1]);
-		(this ->* fdt[1])();
-		return 1;
-	}
-	if(move == 'a')
-	{
-		if(!this -> moves) this -> moves = new list;
-		this -> moves -> insert(&fdt[2]);
-		(this ->* fdt[2])();
-		return 1;
-	}
-	if(move == 'd')
-	{
-		if(!this -> moves) this -> moves = new list;
-		this -> moves -> insert(&fdt[3]);
-		(this ->* fdt[3])();
-		return 1;
-	}
+	int move_index = get_move_index(move);
 
-	else return 0;
+	if(move_index > -1)
+	{
+		apply_move(move_index);
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+//returns the index of the move char in an array
+int user::get_move_index(char move)
+{
+	char move_list[4] = {'w', 'a', 's', 'd'};
+	
+	for (int i = 0; i < 4; i++)
+	{
+		if(move_list[i] == move)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+//sends the address of the function into list
+void user::apply_move(int move_index)
+{
+	if(!this -> moves) this -> moves = new list;
+		this -> moves -> insert(&fdt[move_index]);
+		(this ->*fdt[move_index])();
 }
 
 //calls a move function on "this"
