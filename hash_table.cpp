@@ -89,10 +89,10 @@ void table::display()
 		current = this -> d_base[i];
 		if(current)
 		{
-			current -> data -> display();
+			current -> data -> display_moves();
 			while(current -> next)
 			{
-				current -> data -> display();
+				current -> data -> display_moves();
 				current = current -> next;
 			}
 		}

@@ -54,7 +54,7 @@ void list::display(list::node * current, user * ct_dummy)
 
 	//calls the necessary function, prints the new coordinates
 	ct_dummy -> new_move(index);
-	ct_dummy -> print();
+	ct_dummy -> print_coordinate();
 
 	if(!current -> next) return;	
 	this -> display(current -> next, ct_dummy);

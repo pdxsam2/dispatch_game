@@ -26,7 +26,7 @@ user::~user()
 }
 
 //prints the coordinates of the user
-void user::print()
+void user::print_coordinate()
 {
 	cout<< "(x,y)= \t" << "(" << x << "," << y << ")\n";
 }
@@ -100,7 +100,7 @@ int user::function_check(user::function_type * to_check)
 }
 
 //displays the recent moves, really just a level of abstraction between the user and the list
-void user::display()
+void user::display_moves()
 {
 	cout<<"User " << this->id << "'s recent moves\n";
 	this -> moves -> display();

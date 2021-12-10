@@ -21,7 +21,7 @@ int main()
 		while(function_index != '0')
 		{
 			if(!test -> new_move(function_index)) cout<<"Error: you did not enter a valid input\n";
-			test -> print();
+			test -> print_coordinate();
 			MOVE_SELECTION(function_index);
 		}
 		cout<<"\nWould you like to add another user?(y/n)\n";

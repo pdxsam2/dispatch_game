@@ -21,10 +21,10 @@ class user
 	user();
 	user(char *);
 	~user();
-	void print();
+	void print_coordinate();
 	int new_move(char);
 	int new_move(int);
-	void display();
+	void display_moves();
 	void get_id(char * &);
 
 	//functions for coordinate alteration
