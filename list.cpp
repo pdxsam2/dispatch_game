@@ -2,44 +2,44 @@
 //list of previous moves made by this user
 list::list()
 {
-	head = NULL;
-	tail = NULL;
+	this -> head = NULL;
+	this -> tail = NULL;
 }
 
 //destructor
 list::~list()
 {
-	remove_all(head);
-	head = NULL;
-	tail = NULL;
+	this -> remove_all(head);
+	this -> head = NULL;
+	this -> tail = NULL;
 }
 
 //inserts a new move into the list
 void list::insert(user::functype * new_move)
 {
-	if(!head)
+	if(!this -> head)
 	{
-		head = new node;
-		head -> data = new_move;
-		head -> next = NULL;
-		tail = head;
+		this -> head = new node;
+		this -> head -> data = new_move;
+		this -> head -> next = NULL;
+		this -> tail = head;
 	}
 	else
 	{
-		tail -> next = new node;
-		tail = tail -> next;
-		tail -> data = new_move;
-		tail -> next = NULL;
+		this -> tail -> next = new node;
+		this -> tail = this -> tail -> next;
+		this -> tail -> data = new_move;
+		this -> tail -> next = NULL;
 	}
 }
 
 //displays the moves that have been made
 void list::display()
 {
-	if(!head) return;
+	if(!this -> head) return;
 	char * moves= "Moves: ";
 	user * ct_dummy= new user(moves);
-	display(head, ct_dummy);
+	this -> display(head, ct_dummy);
 	delete ct_dummy;
 }
 
@@ -57,13 +57,13 @@ void list::display(list::node * current, user * ct_dummy)
 	ct_dummy -> print();
 
 	if(!current -> next) return;	
-	display(current -> next, ct_dummy);
+	this -> display(current -> next, ct_dummy);
 }
 
 //removes all the nodes, used by the destructor
 void list::remove_all(node * current)
 {
 	if(!current) return;
-	remove_all(current -> next);
+	this -> remove_all(current -> next);
 	delete current;
 }

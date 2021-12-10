@@ -11,7 +11,7 @@ table::table()
 
 	for(int i = 0; i < size; ++ i)
 	{
-		d_base[i] = NULL;
+		this -> d_base[i] = NULL;
 	}
 }
 
@@ -23,18 +23,18 @@ table::table(int new_size)
 
 	for(int i = 0; i < size; ++ i)
 	{
-		d_base[i] = NULL;
+		this -> d_base[i] = NULL;
 	}
 }
 
 //destructor 
 table::~table()
 {
-	for(int i = 0; i < size; ++ i)
+	for(int i = 0; i < this -> size; ++ i)
 	{
-		remove_list(d_base[i]);
+		this -> remove_list(d_base[i]);
 	}
-	delete[] d_base;
+	delete[] this -> d_base;
 }
 
 //hash function that uses the average ascii value of the user's ID to create an integer
@@ -49,7 +49,7 @@ int table::hash(char * ID)
 		sum += ID[i];
 		++ i;
 	}
-	return (sum / i) % size;
+	return (sum / i) % this -> size;
 	
 }
 
@@ -64,13 +64,13 @@ void table::insert(user & new_user)
 	temp -> data = & new_user;
 	temp -> next = NULL;
 
-	if(!d_base[index]) 
+	if(!this -> d_base[index]) 
 	{
-		d_base[index] = temp;
+		this -> d_base[index] = temp;
 	}
 	else
 	{
-		node * current = d_base[index];
+		node * current = this -> d_base[index];
 		while(current -> next)
 		{
 			current = current -> next;
@@ -84,9 +84,9 @@ void table::insert(user & new_user)
 void table::display()
 {
 	node * current;
-	for(int i= 0;i < size; ++ i)
+	for(int i= 0;i < this -> size; ++ i)
 	{
-		current = d_base[i];
+		current = this -> d_base[i];
 		if(current)
 		{
 			current -> data -> display();
@@ -103,7 +103,7 @@ void table::display()
 void table::remove_list(node * current)
 {
 	if(!current) return;
-	remove_list(current -> next);
+	this -> remove_list(current -> next);
 	delete current -> data;
 	delete current;
 }
