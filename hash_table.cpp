@@ -14,6 +14,7 @@ table::table()
 		d_base[i] = NULL;
 	}
 }
+
 //constructor specified size of table by client 
 table::table(int new_size)
 {
@@ -78,6 +79,7 @@ void table::insert(user & new_user)
 	}
 	delete[] ID;
 }
+
 //displays all of the table
 void table::display()
 {
