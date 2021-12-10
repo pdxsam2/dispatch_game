@@ -15,7 +15,7 @@ list::~list()
 }
 
 //inserts a new move into the list
-void list::insert(user::functype * new_move)
+void list::insert(user::function_type * new_move)
 {
 	if(!this -> head)
 	{
@@ -48,8 +48,8 @@ void list::display(list::node * current, user * ct_dummy)
 
 	//this section checks which function is inside the node and then calls it on the dummy
 	if(!current) return;
-	user::functype * func = current -> data;
-	int index = ct_dummy -> func_check(func);
+	user::function_type * func = current -> data;
+	int index = ct_dummy -> function_check(func);
 	if(index < 0) return;
 
 	//calls the necessary function, prints the new coordinates

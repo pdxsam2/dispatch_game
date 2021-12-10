@@ -86,7 +86,7 @@ void user::get_id(char * & store)
 }
 
 //checks which function has been called (used to call a function pointer in a node)
-int user::func_check(user::functype * to_check)
+int user::function_check(user::function_type * to_check)
 {
 	if(*to_check == this -> fdt[0])
 		return 0;

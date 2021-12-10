@@ -28,9 +28,9 @@ class user
 	void get_id(char * &);
 
 	//functions for coordinate alteration
-	typedef void (user::*functype)(void);
-	functype fdt[4]= {&user::up,&user::down,&user::left,&user::right};
-	int func_check(user::functype*);
+	typedef void (user::*function_type)(void);
+	function_type fdt[4]= {&user::up,&user::down,&user::left,&user::right};
+	int function_check(user::function_type*);
 
 	void up();
 	void down();
@@ -48,4 +48,4 @@ class user
 };
 
 ///GLOBAL PROTOTYPES
-void MOVE_SEL(char &);
+void MOVE_SELECTION(char &);

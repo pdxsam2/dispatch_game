@@ -6,13 +6,13 @@ class list
 	public:
 	list();
 	~list();
-	void insert(user::functype * );
+	void insert(user::function_type * );
 	void display();
 
 	private:
 	struct node
 	{
-		user::functype * data;
+		user::function_type * data;
 		node * next;
 	} * head, * tail;
 
