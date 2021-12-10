@@ -12,7 +12,7 @@ Personal Project
 //constants
 const char SIZE= 21;
 const char MAX= 100;
-const char newl= '\n';
+const char NEWL= '\n';
 
 //this object contains a user's name, coordinates, and recent moves 
 class user
@@ -69,4 +69,4 @@ class list
 
 
 ///GLOBAL PROTOTYPES
-void move_sel(char&);
+void MOVE_SEL(char&);

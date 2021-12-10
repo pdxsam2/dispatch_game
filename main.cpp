@@ -12,17 +12,17 @@ int main()
 	{
 		cout<<"Enter an ID for your user: \n";
 		cin>> id;
-		cin.ignore(100, newl);
+		cin.ignore(100, NEWL);
 		
 		test= new user(id);
 		data_base.insert(*test);
-		move_sel(func_index);
+		MOVE_SEL(func_index);
 		
 		while(func_index != '0')
 		{
 			if(!test->new_move(func_index)) cout<<"Error: you did not enter a valid input\n";
 			test->print();
-			move_sel(func_index);
+			MOVE_SEL(func_index);
 		}
 		cout<<"\nWould you like to add another user?(y/n)\n";
 		cin>> check;
@@ -36,7 +36,7 @@ int main()
 }
 
 //prompts the user and takes their input to move them
-void move_sel(char & index)
+void MOVE_SEL(char & index)
 {
 	cout<<"Which direction would you like your user to move?\n";
 	cout<<"Up - w\n";
@@ -45,7 +45,7 @@ void move_sel(char & index)
 	cout<<"Right- d\n";
 	cout<<"Quit- 0\n";
 	cin>> index;
-	cin.ignore(MAX, newl);
+	cin.ignore(MAX, NEWL);
 }
 
 
