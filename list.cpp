@@ -48,9 +48,9 @@ void list::display(list::node * current, user * ct_dummy)
 
 	//this section checks which function is inside the node and then calls it on the dummy
 	if(!current) return;
+
 	user::function_type * func = current -> data;
 	int index = ct_dummy -> function_check(func);
-	if(index < 0) return;
 
 	//calls the necessary function, prints the new coordinates
 	ct_dummy -> new_move(index);

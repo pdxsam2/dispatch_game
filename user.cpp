@@ -32,25 +32,16 @@ void user::print_coordinate()
 }
 
 //gets and applys the new move
-int user::new_move(char move)
+void user::new_move(char move)
 {
 	int move_index = get_move_index(move);
-
-	if(move_index > -1)
-	{
-		apply_move(move_index);
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
+	apply_move(move_index);
 }
 
 //returns the index of the move char in an array
 int user::get_move_index(char move)
 {
-	char move_list[4] = {'w', 'a', 's', 'd'};
+	char move_list[4] = {'w', 's', 'a', 'd'};
 	
 	for (int i = 0; i < 4; i++)
 	{
@@ -59,7 +50,7 @@ int user::get_move_index(char move)
 			return i;
 		}
 	}
-	return -1;
+	throw INVALID_FUNC;
 }
 
 //sends the address of the function into list
@@ -71,14 +62,10 @@ void user::apply_move(int move_index)
 }
 
 //calls a move function on "this"
-int user::new_move(int move)
+void user::new_move(int move)
 {
-	if(move > - 1 || move < 4)
-	{
-		(this ->* fdt[move])();
-		return 1;
-	}
-	return 0;
+	if(move < 0 || move > 3) throw INVALID_FUNC;
+	(this ->* fdt[move])();
 }
 
 //stores the id of the current user into a string (expected to be used by the hash table)
@@ -100,7 +87,7 @@ int user::function_check(user::function_type * to_check)
 		return 2;
 	if(*to_check == this -> fdt[3])
 		return 3;
-	else return -1;
+	throw INVALID_FUNC; 
 }
 
 //displays the recent moves, really just a level of abstraction between the user and the list

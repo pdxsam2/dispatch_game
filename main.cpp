@@ -15,13 +15,47 @@ int main()
 		cin.ignore(100, NEWL);
 		
 		test= new user(id);
-		data_base.insert(* test);
+		try
+		{
+			data_base.insert(* test);
+		}
+		catch(table_errors err)
+		{
+			switch (err)
+			{
+				case MISSING_ID:
+					cout << "\nAn invalid function key was provided \n";
+					break;
+				default:
+					cout << "\nAn error ocurred while creating a user \n";
+					break;
+			}
+		}
+		
+		
 		MOVE_SELECTION(function_index);
 		
 		while(function_index != '0')
 		{
-			if(!test -> new_move(function_index)) cout<<"Error: you did not enter a valid input\n";
-			test -> print_coordinate();
+			try
+			{
+				test -> new_move(function_index);
+				test -> print_coordinate();
+			}
+			catch(user_errors err)
+			{
+				switch (err)
+				{
+					case INVALID_FUNC:
+						cout << "\nAn invalid function key was provided \n";
+						break;
+					default:
+						cout << "\nAn error occurred \n";
+						break;
+				}
+
+			}
+
 			MOVE_SELECTION(function_index);
 		}
 		cout<<"\nWould you like to add another user?(y/n)\n";
