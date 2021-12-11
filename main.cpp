@@ -6,7 +6,7 @@ int main()
 	char id[SIZE];
 	char function_index = '0';
 	char check = 'y';
-	user * test;
+	user * test = NULL;
 
 	while(check == 'y')
 	{
@@ -31,8 +31,6 @@ int main()
 					break;
 			}
 		}
-		
-		
 		MOVE_SELECTION(function_index);
 		
 		while(function_index != '0')

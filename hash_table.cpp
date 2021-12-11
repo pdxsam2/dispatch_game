@@ -84,7 +84,7 @@ void table::insert(user & new_user)
 //displays all of the table
 void table::display()
 {
-	node * current;
+	node * current = NULL;
 	for(int i= 0;i < this -> size; ++ i)
 	{
 		current = this -> d_base[i];
