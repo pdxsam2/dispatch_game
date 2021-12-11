@@ -40,6 +40,7 @@ table::~table()
 //hash function that uses the average ascii value of the user's ID to create an integer
 int table::hash(char * ID)
 {
+	if(ID == NULL) throw MISSING_ID;
 	int sum = 0;
 	int i = 0;
 	int len = strlen(ID);
@@ -83,7 +84,7 @@ void table::insert(user & new_user)
 //displays all of the table
 void table::display()
 {
-	node * current;
+	node * current = NULL;
 	for(int i= 0;i < this -> size; ++ i)
 	{
 		current = this -> d_base[i];

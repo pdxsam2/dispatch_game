@@ -1,7 +1,10 @@
 #include"list.h"
 
 //Samuel Parker, 10/2019
-
+enum table_errors 
+{
+	MISSING_ID,
+};
 /*
 this is the hash table data structure used for the following: 	
 	- stores users based on an ID that is set by the user
